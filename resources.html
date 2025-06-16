@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wilson's Tutoring Resources</title>
   <style>
     body {
@@ -12,8 +12,8 @@
       margin: 0;
       padding: 0;
       color: #222;
-      animation: fadeIn 0.8s ease;
       font-size: 20px;
+      animation: fadeIn 0.8s ease;
     }
 
     @keyframes fadeIn {
@@ -27,27 +27,6 @@
       text-align: center;
       padding: 1.5rem;
       font-size: 2.2rem;
-      position: relative;
-    }
-
-    .home-link {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: white;
-      color: black;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
-    }
-
-    .home-link:hover {
-      background-color: #ddd;
     }
 
     .container {
@@ -86,18 +65,50 @@
       text-decoration: none;
       font-size: 1.2rem;
       transition: all 0.3s ease;
-      transform: translateX(0);
     }
 
     .resource a:hover {
       text-decoration: underline;
       transform: translateX(5px);
     }
+
+    .fab {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #0072ff;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 114, 255, 0.3);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      z-index: 999;
+      animation: slideIn 0.5s ease-out;
+    }
+
+    .fab:hover {
+      background-color: #0059cc;
+      transform: translateY(-3px);
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(80px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <a class="home-link" href="index.html">← Home</a>
     📚 Wilson's Tutoring Resources
   </header>
 
@@ -114,9 +125,11 @@
     </div>
     <div class="resource">
       <h2>📙 IB Resources</h2>
-      <p> IB curriculum materials including IA guides and exam prep.</p>
+      <p>IB curriculum materials including IA guides and exam prep.</p>
       <a href="https://drive.google.com/drive/u/0/folders/1PTv9t2pa3DmdBTeyxSPgPg6_i-V-JURv" target="_blank">Go to IB Folder →</a>
     </div>
   </div>
+
+  <a href="index.html" class="fab" title="Back to Home">Home</a>
 </body>
 </html>
