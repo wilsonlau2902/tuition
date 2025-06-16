@@ -7,6 +7,56 @@
   <title>Wilson's Tutoring Hub</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+      padding: 0 2rem;
+    }
+
+    .feature-card {
+      background-color: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .feature-card a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.6em 1.5em;
+      background-color: #000;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .feature-card a:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -25,8 +75,25 @@
 
   <main class="hero">
     <h1>Welcome to Wilson's Tutoring Hub</h1>
-    <p>Your personalized space for learning, growing, and staying connected.</p>
-    <a href="student.html" class="cta-button">Enter Student Dashboard</a>
+    <p>Personalized learning. Smart tracking. Seamless scheduling.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>📘 Student Dashboard</h3>
+        <p>Access your progress, records, and lesson feedback all in one place.</p>
+        <a href="student.html">Go to Student</a>
+      </div>
+      <div class="feature-card">
+        <h3>📂 Resources Library</h3>
+        <p>Download notes, worksheets, and extra practice materials by subject.</p>
+        <a href="resources.html">Browse Resources</a>
+      </div>
+      <div class="feature-card">
+        <h3>📅 Schedule a Lesson</h3>
+        <p>View or request lesson times and reschedule existing appointments.</p>
+        <a href="calendar.html">Schedule Now</a>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -34,85 +101,3 @@
   </footer>
 </body>
 </html>
-
-<!-- style.css -->
-body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f7fa;
-  color: #1a1a1a;
-  line-height: 1.6;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1em 2em;
-  background-color: #000;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 1.4em;
-  font-weight: 800;
-  letter-spacing: -1px;
-}
-
-nav a {
-  margin-left: 20px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: opacity 0.3s ease;
-}
-
-nav a:hover {
-  opacity: 0.7;
-}
-
-.hero {
-  text-align: center;
-  padding: 6em 2em;
-  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-}
-
-.hero h1 {
-  font-size: 2.8em;
-  font-weight: 800;
-  margin-bottom: 0.5em;
-}
-
-.hero p {
-  font-size: 1.2em;
-  color: #555;
-  max-width: 600px;
-  margin: 0 auto 2em;
-}
-
-.cta-button {
-  padding: 0.75em 2em;
-  background-color: #000;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #333;
-}
-
-footer {
-  background-color: #eee;
-  padding: 2em;
-  text-align: center;
-  font-size: 0.9em;
-  color: #777;
-  margin-top: 4em;
-}
