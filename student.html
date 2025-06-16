@@ -1,40 +1,134 @@
+<!-- student.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Login</title>
+  <style>
+    body {
+      font-family: "Times New Roman", serif;
+      font-size: 18px;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #000;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">Wilson's Hub</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="student.html">Student</a>
-      <a href="parent.html">Parent</a>
-      <a href="resources.html">Resources</a>
-      <a href="calendar.html">Calendar</a>
-      <a href="quizzes.html">Quizzes</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <h1>Student Login</h1>
+  <form onsubmit="return handleLogin(event)">
+    <label for="name">Name</label>
+    <input type="text" id="name" required />
 
-  <main>
-    <h1>Student Dashboard</h1>
-    <p>Check your lessons and progress below:</p>
-    
-    <!-- Embed your Google Sheet here -->
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR.../pubhtml?widget=true&amp;headers=false" 
-            width="100%" 
-            height="600" 
-            frameborder="0">
-    </iframe>
-  </main>
+    <label for="password">Password</label>
+    <input type="password" id="password" required />
 
-  <footer>
-    <p>&copy; 2025 Wilson's Tutoring Hub</p>
-  </footer>
+    <button type="submit">Login</button>
+  </form>
+
+  <script>
+    const studentData = {
+      "vito": {
+        password: "VITO",
+        link: "https://docs.google.com/spreadsheets/d/1xZ2gEft2wwGPlWqVMOnjuBrRZFUn8Sxepp_acxYPBgQ/edit?usp=sharing"
+      },
+      "pansy": {
+        password: "PANSY",
+        link: "https://docs.google.com/spreadsheets/d/1FUzkeoi_WfBa8w9yoL_ZdlsV0NTydiMGr7gywQUWOrI/edit?usp=sharing"
+      },
+      "ambrose": {
+        password: "AMBROSE",
+        link: "https://docs.google.com/spreadsheets/d/1JP_taIOCwngPv2wW1PjOOINOEXbwzhpzclfwXj7KSyQ/edit?usp=sharing"
+      },
+      "david": {
+        password: "DAVID",
+        link: "https://docs.google.com/spreadsheets/d/1JXc5zuMDCNP352qL9rzMPlll75WyRt7N4X09YxbhmTY/edit?usp=sharing"
+      },
+      "karl": {
+        password: "KARL",
+        link: "https://docs.google.com/spreadsheets/d/1pMQqTqR8SMdX0J9wi2jc3_RJQ2MQC55raAOlKuMxtsI/edit?usp=sharing"
+      },
+      "leanne": {
+        password: "LEANNE",
+        link: "https://docs.google.com/spreadsheets/d/1Wvgc4FV700Q800LHa3MK6YMWggJmGo2rhnCn4IwXPDQ/edit?usp=sharing"
+      },
+      "tommy": {
+        password: "TOMMY",
+        link: "https://docs.google.com/spreadsheets/d/1hV-QTi1QOON87jWY5IFne9QWJFKcb6RKjFK6evNGt9s/edit?usp=sharing"
+      },
+      "marcus": {
+        password: "MARCUS",
+        link: "https://docs.google.com/spreadsheets/d/13xSptbxVspGFz7vuXX19V4cMrRgd-w588bG48CSZRD8/edit?usp=sharing"
+      }
+    };
+
+    function handleLogin(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim().toLowerCase();
+      const password = document.getElementById("password").value.trim();
+
+      if (!studentData[name]) {
+        alert("Student not found.");
+        return;
+      }
+
+      if (password !== studentData[name].password) {
+        alert("Incorrect password.");
+        return;
+      }
+
+      window.location.href = studentData[name].link;
+    }
+  </script>
 </body>
 </html>
