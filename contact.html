@@ -1,0 +1,135 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Wilson</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #000000, #1c1c1c);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 4rem 2rem;
+      max-width: 700px;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      animation: fadeSlideDown 1s ease-in-out;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: #aaa;
+      margin-bottom: 2rem;
+      animation: fadeSlideDown 1.2s ease-in-out;
+    }
+
+    .contact-box {
+      background: #111;
+      border: 1px solid #333;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      margin: 1.5rem 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-box:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      color: #58a6ff;
+    }
+
+    .contact-info a, .contact-info {
+      font-size: 1.2rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .home-link {
+      margin-top: 3rem;
+      display: inline-block;
+      padding: 0.8rem 2.5rem;
+      background-color: #58a6ff;
+      color: #000;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .home-link:hover {
+      background-color: #1f6feb;
+      color: #fff;
+    }
+
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Let's Connect.</h1>
+    <div class="subtitle">Reach out anytime — I'm just a click away.</div>
+
+    <div class="contact-box">
+      <div class="contact-title">📱 WhatsApp</div>
+      <div class="contact-info">
+        <a href="https://wa.me/85269986497" target="_blank">+852 6998 6497</a>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-title">✉️ Email</div>
+      <div class="contact-info">
+        <a href="mailto:ci2134803116@gmail.com">ci2134803116@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-title">💬 WeChat</div>
+      <div class="contact-info">
+        <span>wilsonlau_2902</span>
+      </div>
+    </div>
+
+    <a href="index.html" class="home-link">← Back to Home</a>
+  </div>
+</body>
+</html>
