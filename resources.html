@@ -12,63 +12,108 @@
       margin: 0;
       padding: 0;
       color: #222;
+      animation: fadeIn 0.8s ease;
+      font-size: 20px;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     header {
       background-color: #000;
       color: white;
       text-align: center;
       padding: 1.5rem;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
+      position: relative;
     }
+
+    .home-link {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: white;
+      color: black;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .home-link:hover {
+      background-color: #ddd;
+    }
+
     .container {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1.5rem;
     }
+
     .resource {
       background-color: #fff;
       border-radius: 12px;
       padding: 1.5rem;
       margin-bottom: 1.5rem;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
     }
+
     .resource:hover {
       transform: translateY(-5px);
     }
+
     .resource h2 {
       margin-top: 0;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
     }
+
+    .resource p {
+      font-size: 1.2rem;
+    }
+
     .resource a {
       display: inline-block;
       margin-top: 0.8rem;
       color: #0072ff;
       font-weight: bold;
       text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      transform: translateX(0);
     }
+
     .resource a:hover {
       text-decoration: underline;
+      transform: translateX(5px);
     }
   </style>
 </head>
 <body>
   <header>
+    <a class="home-link" href="index.html">← Home</a>
     📚 Wilson's Tutoring Resources
   </header>
+
   <div class="container">
     <div class="resource">
-      <h2>MYP Resources</h2>
+      <h2>📘 MYP Resources</h2>
       <p>Access worksheets, notes, and past papers for MYP curriculum.</p>
       <a href="https://drive.google.com/drive/u/0/folders/1VaN2ozTRnNF5CBwxzfhAeyU-rkiePXw1" target="_blank">Go to MYP Folder →</a>
     </div>
     <div class="resource">
-      <h2>IGCSE Resources</h2>
+      <h2>📗 IGCSE Resources</h2>
       <p>Practice materials and reference documents for IGCSE subjects.</p>
       <a href="https://drive.google.com/drive/u/0/folders/1wyaSQjZIfT-UoeXzwzRE2LCFSseOVKrD" target="_blank">Go to IGCSE Folder →</a>
     </div>
     <div class="resource">
-      <h2>IB Resources</h2>
+      <h2>📙 IB Resources</h2>
       <p>Comprehensive IB curriculum materials including IA guides and exam prep.</p>
       <a href="https://drive.google.com/drive/u/0/folders/1PTv9t2pa3DmdBTeyxSPgPg6_i-V-JURv" target="_blank">Go to IB Folder →</a>
     </div>
