@@ -2,128 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scientific Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cute Scientific Calculator</title>
   <style>
     body {
-      background-color: #121212;
       font-family: "Times New Roman", serif;
-      color: white;
+      background: linear-gradient(to bottom right, #ffe8ec, #e0f7fa);
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
       margin: 0;
     }
 
     .calculator {
-      background-color: #1e1e1e;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      width: 320px;
+      background-color: #ffffff;
+      border-radius: 25px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 100%;
     }
 
     .display {
       width: 100%;
-      height: 50px;
-      font-size: 1.5rem;
-      padding: 10px;
-      border-radius: 8px;
+      font-size: 2.4rem;
+      padding: 1.2rem;
       border: none;
-      margin-bottom: 20px;
+      border-radius: 16px;
+      background: #fefefe;
       text-align: right;
-      background: #2c2c2c;
-      color: white;
+      margin-bottom: 2rem;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
     }
 
     .buttons {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
     }
 
     button {
-      font-size: 1.1rem;
-      padding: 15px;
+      font-size: 1.6rem;
+      padding: 1.2rem;
       border: none;
-      border-radius: 10px;
-      background-color: #3b3b3b;
-      color: white;
+      border-radius: 50px;
+      background-color: #f8f8f8;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s ease;
     }
 
     button:hover {
-      background-color: #555;
+      transform: scale(1.05);
+      background-color: #e0f2f1;
     }
 
-    .equals {
-      background-color: #0072ff;
+    .operator {
+      background-color: #ffb74d;
+      color: white;
     }
 
-    .equals:hover {
-      background-color: #005ccc;
+    .equal {
+      background-color: #4fc3f7;
+      color: white;
+      font-weight: bold;
+    }
+
+    .clear {
+      background-color: #e57373;
+      color: white;
+    }
+
+    .del {
+      background-color: #ff8a65;
+      color: white;
     }
   </style>
 </head>
 <body>
+
   <div class="calculator">
-    <input type="text" class="display" id="display" disabled />
+    <input type="text" id="display" class="display" disabled />
     <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">AC</button>
+      <button class="del" onclick="deleteChar()">DEL</button>
+      <button onclick="append('(')">(</button>
+      <button onclick="append(')')">)</button>
+
       <button onclick="append('7')">7</button>
       <button onclick="append('8')">8</button>
       <button onclick="append('9')">9</button>
-      <button onclick="append('/')">/</button>
-      <button onclick="append('Math.sqrt(')">√</button>
+      <button class="operator" onclick="append('/')">÷</button>
 
       <button onclick="append('4')">4</button>
       <button onclick="append('5')">5</button>
       <button onclick="append('6')">6</button>
-      <button onclick="append('*')">×</button>
-      <button onclick="append('**')">^</button>
+      <button class="operator" onclick="append('*')">×</button>
 
       <button onclick="append('1')">1</button>
       <button onclick="append('2')">2</button>
       <button onclick="append('3')">3</button>
-      <button onclick="append('-')">-</button>
-      <button onclick="append('Math.log10(')">log</button>
+      <button class="operator" onclick="append('-')">−</button>
 
       <button onclick="append('0')">0</button>
       <button onclick="append('.')">.</button>
-      <button onclick="clearDisplay()">C</button>
-      <button onclick="append('+')">+</button>
-      <button onclick="append('Math.log(')">ln</button>
-
-      <button onclick="append('Math.sin(')">sin</button>
-      <button onclick="append('Math.cos(')">cos</button>
-      <button onclick="append('Math.tan(')">tan</button>
-      <button onclick="append('Math.PI')">π</button>
-      <button onclick="append('Math.E')">e</button>
-
-      <button class="equals" onclick="calculate()" colspan="5">=</button>
+      <button class="equal" onclick="calculate()">=</button>
+      <button class="operator" onclick="append('+')">+</button>
     </div>
   </div>
 
   <script>
     const display = document.getElementById('display');
 
-    function append(value) {
-      display.value += value;
+    function append(char) {
+      display.value += char;
     }
 
     function clearDisplay() {
       display.value = '';
     }
 
+    function deleteChar() {
+      display.value = display.value.slice(0, -1);
+    }
+
     function calculate() {
       try {
         display.value = eval(display.value);
-      } catch (e) {
+      } catch {
         display.value = 'Error';
       }
     }
   </script>
+
 </body>
 </html>
