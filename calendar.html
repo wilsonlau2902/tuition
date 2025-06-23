@@ -33,9 +33,9 @@
     }
 
     .calendar-container {
-      margin: 3rem auto;
-      width: 90%;
-      max-width: 960px;
+      margin: 3rem auto 1rem;
+      width: 95%;
+      max-width: 1100px;
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
       border-radius: 14px;
       overflow: hidden;
@@ -44,7 +44,28 @@
     iframe {
       border: 0;
       width: 100%;
-      height: 640px;
+      height: 900px;
+    }
+
+    .toggle-view {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .toggle-view button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #0072ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .toggle-view button:hover {
+      background-color: #005ad1;
     }
 
     .fab {
@@ -75,13 +96,28 @@
     📅 Wilson's Tutoring Calendar
   </header>
 
+  <div class="toggle-view">
+    <button onclick="toggleView()">Toggle Timeslot View</button>
+  </div>
+
   <div class="calendar-container">
     <iframe 
+      id="calendarFrame"
       src="https://calendar.google.com/calendar/embed?src=464204b92546a266020430417d98b80747b5747b32a77f149acf2d39a6ea6ee3%40group.calendar.google.com&ctz=Asia%2FHong_Kong"
       frameborder="0" scrolling="no">
     </iframe>
   </div>
 
   <a href="index.html" class="fab" title="Back to Home">← Home</a>
+
+  <script>
+    let weekView = false;
+    function toggleView() {
+      const frame = document.getElementById("calendarFrame");
+      const base = "https://calendar.google.com/calendar/embed?src=464204b92546a266020430417d98b80747b5747b32a77f149acf2d39a6ea6ee3%40group.calendar.google.com&ctz=Asia%2FHong_Kong";
+      weekView = !weekView;
+      frame.src = weekView ? base + "&mode=WEEK" : base;
+    }
+  </script>
 </body>
 </html>
