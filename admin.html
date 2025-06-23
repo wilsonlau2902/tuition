@@ -94,37 +94,43 @@
       marcus: "https://script.google.com/macros/s/YOUR_MARCUS_SCRIPT_DEPLOYMENT_URL/exec"
     };
 
-    function logLesson() {
-      const student = document.getElementById("student").value;
-      const date = document.getElementById("date").value;
-      const time = document.getElementById("time").value;
-      const url = endpoints[student];
+function logLesson() {
+  const student = document.getElementById("student").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const url = endpoints[student];
 
-      fetch(url, {
-        method: "POST",
-        body: new URLSearchParams({
-          type: "lesson",
-          date,
-          time
-        })
-      }).then(() => alert("Lesson added"));
-    }
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      action: "add_record",
+      date,
+      time
+    })
+  }).then(() => alert("Lesson added"));
+}
 
-    function markPaid() {
-      const student = document.getElementById("student").value;
-      const date = document.getElementById("date").value;
-      const time = document.getElementById("time").value;
-      const url = endpoints[student];
+function markPaid() {
+  const student = document.getElementById("student").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const url = endpoints[student];
 
-      fetch(url, {
-        method: "POST",
-        body: new URLSearchParams({
-          type: "payment",
-          date,
-          time
-        })
-      }).then(() => alert("Marked as paid"));
-    }
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      action: "mark_paid",
+      date,
+      time
+    })
+  }).then(() => alert("Marked as paid"));
+}
   </script>
 </body>
 </html>
