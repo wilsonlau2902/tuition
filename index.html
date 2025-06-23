@@ -170,5 +170,20 @@
   <footer>
     <p>&copy; 2025 Wilson's Tutoring Hub</p>
   </footer>
+<script>
+  let clickCount = 0;
+  const logo = document.querySelector('.logo');
+
+  logo.addEventListener('click', () => {
+    clickCount++;
+    if (clickCount >= 5) {
+      window.location.href = 'admin.html';
+    }
+    // 在 1.5 秒內沒繼續點就重置
+    setTimeout(() => {
+      clickCount = 0;
+    }, 1500);
+  });
+</script>
 </body>
 </html>
